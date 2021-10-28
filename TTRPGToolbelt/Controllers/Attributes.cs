@@ -28,23 +28,24 @@ namespace WebAPIToolbelt.Controllers
 
         private static void GetStarsWithoutNumberAttributeArray(string type, int[] attributes)
         {
-            if (type == "Random")
+            switch (type)
             {
-                attributes[0] = CommonUtilities.GetDiceRolls(6, 3).Sum();
-                attributes[1] = CommonUtilities.GetDiceRolls(6, 3).Sum();
-                attributes[2] = CommonUtilities.GetDiceRolls(6, 3).Sum();
-                attributes[3] = CommonUtilities.GetDiceRolls(6, 3).Sum();
-                attributes[4] = CommonUtilities.GetDiceRolls(6, 3).Sum();
-                attributes[5] = CommonUtilities.GetDiceRolls(6, 3).Sum();
-            }
-            else
-            {
-                attributes[0] = 14;
-                attributes[1] = 12;
-                attributes[2] = 11;
-                attributes[3] = 10;
-                attributes[4] = 9;
-                attributes[5] = 7;
+                case "Random":
+                    attributes[0] = CommonUtilities.GetDiceRolls(6, 3).Sum();
+                    attributes[1] = CommonUtilities.GetDiceRolls(6, 3).Sum();
+                    attributes[2] = CommonUtilities.GetDiceRolls(6, 3).Sum();
+                    attributes[3] = CommonUtilities.GetDiceRolls(6, 3).Sum();
+                    attributes[4] = CommonUtilities.GetDiceRolls(6, 3).Sum();
+                    attributes[5] = CommonUtilities.GetDiceRolls(6, 3).Sum();
+                    break;
+                default:
+                    attributes[0] = 14;
+                    attributes[1] = 12;
+                    attributes[2] = 11;
+                    attributes[3] = 10;
+                    attributes[4] = 9;
+                    attributes[5] = 7;
+                    break;
             }
         }
 
