@@ -3,7 +3,7 @@ using WebAPIToolbelt.Controllers;
 
 namespace WebAPIToolbeltTests.Controllers
 {
-    public class Tests
+    public class T_Attributes
     {
 
         [SetUp]
