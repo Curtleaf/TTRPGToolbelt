@@ -26,7 +26,7 @@ namespace WebAPIToolbelt.Controllers
             return attributes;
         }
 
-        private static void GetStarsWithoutNumberAttributeArray(string type, int[] attributes)
+        private static void GetStarsWithoutNumberAttributeArray(string type, IList<int> attributes)
         {
             switch (type)
             {
@@ -49,7 +49,7 @@ namespace WebAPIToolbelt.Controllers
             }
         }
 
-        private static void GetDnD5eAttributeArray(string type, int[] attributes)
+        private static void GetDnD5eAttributeArray(string type, IList<int> attributes)
         {
             switch (type)
             {
