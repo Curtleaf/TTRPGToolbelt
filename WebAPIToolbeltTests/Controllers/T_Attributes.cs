@@ -13,6 +13,7 @@ namespace WebAPIToolbeltTests.Controllers
         }
 
         [TestCase("SWN","Standard Array", new[]{14,12,11,10,9,7})]
+        [TestCase("SWN", "Custom", new[] { 0, 0, 0, 0, 0, 0 })]
         [TestCase("5e", "Standard Array", new[]{15,14,13,12,10,8})]
         [TestCase("5e", "Point Buy", new[]{0,0,0,0,0,0})]
         public void GetAttributeArrayTest(string system, string type, int[] expectedResult)

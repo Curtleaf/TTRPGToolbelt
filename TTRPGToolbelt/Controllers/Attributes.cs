@@ -38,6 +38,14 @@ namespace WebAPIToolbelt.Controllers
                     attributes[4] = CommonUtilities.GetDiceRolls(6, 3).Sum();
                     attributes[5] = CommonUtilities.GetDiceRolls(6, 3).Sum();
                     break;
+                case "Custom":
+                    attributes[0] = 0;
+                    attributes[1] = 0;
+                    attributes[2] = 0;
+                    attributes[3] = 0;
+                    attributes[4] = 0;
+                    attributes[5] = 0;
+                    break;
                 default:
                     attributes[0] = 14;
                     attributes[1] = 12;
