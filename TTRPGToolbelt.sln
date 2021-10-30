@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIToolbelt", "TTRPGToolbelt\WebAPIToolbelt.csproj", "{D351B7AF-EAFE-49C5-BD5F-0C9E0B8D069B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIToolbeltTests", "WebAPIToolbeltTests\WebAPIToolbeltTests.csproj", "{90741275-FBD1-4624-ADEC-72A8F0BD57BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIToolbeltTests", "WebAPIToolbeltTests\WebAPIToolbeltTests.csproj", "{90741275-FBD1-4624-ADEC-72A8F0BD57BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
