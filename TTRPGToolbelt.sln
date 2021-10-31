@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIToolbelt", "TTRPGToolbelt\WebAPIToolbelt.csproj", "{D351B7AF-EAFE-49C5-BD5F-0C9E0B8D069B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIToolBelt", "TTRPGToolbelt\WebAPIToolBelt.csproj", "{D351B7AF-EAFE-49C5-BD5F-0C9E0B8D069B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIToolbeltTests", "WebAPIToolbeltTests\WebAPIToolbeltTests.csproj", "{90741275-FBD1-4624-ADEC-72A8F0BD57BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIToolBeltTests", "WebAPIToolbeltTests\WebAPIToolBeltTests.csproj", "{90741275-FBD1-4624-ADEC-72A8F0BD57BD}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseToolbelt", "..\DatabaseToolbelt\DatabaseToolbelt.sqlproj", "{A1D2DC39-3BB1-42B1-B407-66D769935224}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TTRPGToolBeltDatabase", "TTRPGToolBeltDatabase\TTRPGToolBeltDatabase.sqlproj", "{03E2D930-4EA9-430D-B342-371691DE8F63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,12 @@ Global
 		{90741275-FBD1-4624-ADEC-72A8F0BD57BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90741275-FBD1-4624-ADEC-72A8F0BD57BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90741275-FBD1-4624-ADEC-72A8F0BD57BD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1D2DC39-3BB1-42B1-B407-66D769935224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1D2DC39-3BB1-42B1-B407-66D769935224}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1D2DC39-3BB1-42B1-B407-66D769935224}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{A1D2DC39-3BB1-42B1-B407-66D769935224}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1D2DC39-3BB1-42B1-B407-66D769935224}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1D2DC39-3BB1-42B1-B407-66D769935224}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{03E2D930-4EA9-430D-B342-371691DE8F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E2D930-4EA9-430D-B342-371691DE8F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E2D930-4EA9-430D-B342-371691DE8F63}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{03E2D930-4EA9-430D-B342-371691DE8F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E2D930-4EA9-430D-B342-371691DE8F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E2D930-4EA9-430D-B342-371691DE8F63}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
