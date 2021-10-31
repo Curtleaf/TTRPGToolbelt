@@ -5,5 +5,5 @@
     [description] VARCHAR(MAX) NULL, 
     [combat] BIT NULL, 
     [psychic] BIT NULL,
-    [Background_fk_id] INT NULL FOREIGN KEY REFERENCES Background(BackgroundID),
+    [Background_fk_id] INT NULL FOREIGN KEY REFERENCES Background(backgroundID)
 )

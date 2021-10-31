@@ -59,7 +59,7 @@
     <Folder Include="Player" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Player\Bacground.sql" />
+    <Build Include="Player\Background.sql" />
     <Build Include="Player\Class.sql" />
     <Build Include="Player\Foci.sql" />
     <Build Include="Player\Psionics.sql" />
