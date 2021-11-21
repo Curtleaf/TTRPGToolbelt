@@ -17,7 +17,7 @@ namespace WebAPIToolbelt.Controllers
         {
             var attributes = new int[6];
 
-            switch (system.ToUpper())
+            switch (system?.ToUpper())
             {
                 case "5E":
                     GetDungensandDragons5eAttributeArray(type, attributes);
@@ -32,11 +32,17 @@ namespace WebAPIToolbelt.Controllers
             return attributes;
         }
 
+        /// <summary>
+        /// Returns attribute modifiers based on the game system and type of array.
+        /// </summary>
+        /// <param name="system">Tabletop Game System</param>
+        /// <param name="attributes">Instantiated attributes array</param>
+        /// <returns></returns>
         public static int[] GetAttributeModifiers(string system, IList<int> attributes)
         {
-            var modifiers = Array.Empty<int>();
+            var modifiers = new int[attributes.Count];
 
-            switch (system.ToUpper())
+            switch (system?.ToUpper())
             {
                 case "5E":
                     GetDnD5eAttributeModifiers(attributes, modifiers);
@@ -130,27 +136,28 @@ namespace WebAPIToolbelt.Controllers
         /// <param name="modifiers">Instantiated attribute modifiers</param>
         private static void GetStarsWithoutNumberAttributeModifiers(IList<int> attributes, IList<int> modifiers)
         {
-            foreach (var attribute in attributes)
+            for (int i = 0; i < attributes.Count; i++)
             {
+                int attribute = attributes[i];
                 switch (attribute)
                 {
                     case int n when (n < 4):
-                        modifiers.Add(-2);
+                        modifiers[i] = -2;
                         break;
                     case int n when (n > 3 && n < 8):
-                        modifiers.Add(-1);
+                        modifiers[i] = -1;
                         break;
                     case int n when (n > 7 && n < 14):
-                        modifiers.Add(0);
+                        modifiers[i] = 0;
                         break;
                     case int n when (n > 13 && n < 18):
-                        modifiers.Add(1);
+                        modifiers[i] = 1;
                         break;
                     case int n when (n > 17):
-                        modifiers.Add(2);
+                        modifiers[i] = 2;
                         break;
                     default:
-                        modifiers.Add(0);
+                        modifiers[i] = 0;
                         break;
                 }
             }
@@ -163,20 +170,21 @@ namespace WebAPIToolbelt.Controllers
         /// <param name="modifiers">Instantiated attribute modifiers</param>
         private static void GetDnD5eAttributeModifiers(IList<int> attributes, IList<int> modifiers)
         {
-            foreach (var attribute in attributes)
+            for (int i = 0; i < attributes.Count; i++)
             {
+                int attribute = attributes[i];
                 int modifier = (int)Math.Floor((attribute - 10f) / 2f);
                 if (modifier < -5)
                 {
-                    modifiers.Add(-5);
+                    modifiers[i] = -5;
                 }
                 else if (modifier > 10)
                 {
-                    modifiers.Add(10);
+                    modifiers[i] = 10;
                 }
                 else
                 {
-                    modifiers.Add(modifier);
+                    modifiers[i] = modifier;
                 }
             }
         }

@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPIToolbelt.Controllers
 {
@@ -19,7 +14,7 @@ namespace WebAPIToolbelt.Controllers
         }
 
         [Route("/GetAttributeModifiers")]
-        [HttpGet]
+        [HttpPost]
         public int[] GetAttributeModifiers(string system, int[] attributes)
         {
             return Attributes.GetAttributeModifiers(system, attributes);
