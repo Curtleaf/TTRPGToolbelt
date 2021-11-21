@@ -15,7 +15,15 @@ namespace WebAPIToolbelt.Controllers
         [HttpGet]
         public int[] GetAttributeArray(string system, string type)
         {
-            return Attributes.AttributeArray(system, type);
+            return Attributes.GetAttributeArray(system, type);
+        }
+
+        [Route("/GetAttributeModifiers")]
+        [HttpGet]
+        public int[] GetAttributeModifiers(string system, int[] attributes)
+        {
+            return Attributes.GetAttributeModifiers(system, attributes);
+
         }
     }
 }

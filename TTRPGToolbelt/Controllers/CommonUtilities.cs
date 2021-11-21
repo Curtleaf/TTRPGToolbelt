@@ -8,6 +8,12 @@ namespace WebAPIToolbelt.Controllers
     public class CommonUtilities
     {
         #region Random
+        /// <summary>
+        /// Will roll (count) number of (faces) sidded die and return each result.
+        /// </summary>
+        /// <param name="faces">How many sides the die has</param>
+        /// <param name="count">How many die should be returned</param>
+        /// <returns></returns>
         public static IEnumerable<int> GetDiceRolls(int faces, int count)
         {
             var rolls = new List<int>();
@@ -22,6 +28,10 @@ namespace WebAPIToolbelt.Controllers
 
         #endregion
 
-        
+        #region Calculation
+
+       
+
+        #endregion
     }
 }
