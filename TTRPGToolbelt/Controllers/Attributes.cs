@@ -22,6 +22,7 @@ namespace WebAPIToolbelt.Controllers
                 case "5E":
                     GetDungensandDragons5eAttributeArray(type, attributes);
                     break;
+                case "WWN":
                 case "SWN":
                     GetStarsWithoutNumberAttributeArray(type, attributes);
                     break;
@@ -47,6 +48,7 @@ namespace WebAPIToolbelt.Controllers
                 case "5E":
                     GetDnD5eAttributeModifiers(attributes, modifiers);
                     break;
+                case "WWN":
                 case "SWN":
                     GetStarsWithoutNumberAttributeModifiers(attributes, modifiers);
                     break;
