@@ -22,7 +22,7 @@ namespace WebAPIToolBelt.Controllers
         #endregion
 
         #region Database
-        public IMongoDatabase GetMongodb()
+        public IMongoDatabase GetMongodbRepository()
         {
             var mongodbApiKey = _config["TTRPGToolBeltDB:ConnectionString"];
 
@@ -32,17 +32,41 @@ namespace WebAPIToolBelt.Controllers
         } 
         #endregion
 
-        public List<Background> GetBackgrounds(string name, string free_skill, string system)
+        public List<Background> GetBackgrounds(string name, string[] skill, string[] stat, string system)
         {
 
-            IMongoCollection<Background> backgroundsCollection = GetMongodb().GetCollection<Background>("Backgrounds");
+            IMongoCollection<Background> backgroundsCollection = GetMongodbRepository().GetCollection<Background>("Backgrounds");
 
             var builder = Builders<Background>.Filter;
-            var filter = builder.Or(
-                builder.Eq(Background => Background.name, name),
-                builder.Eq(Background => Background.free_skill, free_skill),
-                builder.Eq(Background => Background.System, system)
-            );
+
+            var filter = builder.Empty;
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                var searchName = builder.Eq(Background => Background.name, name);
+                filter &= searchName;
+            }
+            if (skill != null && skill.Any())
+            {
+                var searchSkill = builder.Or(
+                    builder.In(Background => Background.free_skill, skill)
+                    ,builder.AnyIn(Background => Background.quick_skills, skill)
+                    , builder.AnyIn(Background => Background.growth, skill)
+                );
+                filter &= searchSkill;
+            }
+            if (stat != null && stat.Any())
+            {
+                var searchSkill = builder.AnyIn(Background => Background.growth, stat);
+            
+                filter &= searchSkill;
+            }
+            if (!string.IsNullOrWhiteSpace(system))
+            {
+                var searchSystem = builder.Eq(Background => Background.System, system);
+                filter &= searchSystem;
+            }
+
             var backgrounds = backgroundsCollection.Find(filter).ToList();
 
 

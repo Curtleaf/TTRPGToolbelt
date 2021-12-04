@@ -38,11 +38,11 @@ namespace WebAPIToolbelt.Controllers
         #region Database Calls
         [Route("/GetBackgrounds")]
         [HttpGet]
-        public List<Background> GetBackgrounds(string name, string free_skill, string system)
+        public List<Background> GetBackgrounds(string name, string[] skill, string[] stat, string system)
         {
-            DatabaseCalls dbc = new DatabaseCalls(_config);
+            DatabaseCalls dbc = new(_config);
 
-            return dbc.GetBackgrounds(name, free_skill, system);
+            return dbc.GetBackgrounds(name, skill, stat, system);
         } 
         #endregion
     }

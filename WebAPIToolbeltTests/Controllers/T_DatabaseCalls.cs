@@ -28,18 +28,24 @@ namespace WebAPIToolBeltTests.Controllers
         {
         }
 
-        [TestCase("Barbarian", null, null)]
-        [TestCase(null, "Talk-0", null)]
-        [TestCase(null, null, "SWN")]
-        [TestCase("Barbarian", null, "WWN")]
-        public void GetAttributeArrayTest(string name, string free_skill, string system)
+        [TestCase("Barbarian", null, null, null)]
+        [TestCase(null, new[] { "Talk" }, null, null)]
+        [TestCase(null, new[] { "Talk", "Any Combat" }, null, null)]
+        [TestCase(null, null, new[] { "+2 Physical" }, null)]
+        [TestCase(null, null, null, "SWN")]
+        [TestCase("Barbarian", null, null, "WWN")]
+        [TestCase(null, new[] { "Talk" }, new[] { "+2 Physical" }, null)]
+        [TestCase(null, new[] { "Talk" }, new[] { "+2 Physical" }, "SWN")]
+        [TestCase("Criminal", new[] { "Talk" }, new[] { "+2 Physical" }, "SWN")]
+        public void GetAttributeArrayTest(string name, string[] skill, string[] stat, string system)
         {
             var configuration = Configuration;
 
             DatabaseCalls dbc = new DatabaseCalls(configuration);
 
-            var getBackgrounds = dbc.GetBackgrounds(name, free_skill, system);
+            var getBackgrounds = dbc.GetBackgrounds(name, skill, stat, system);
 
+            Assert.That(getBackgrounds.Count > 0);
         }
 
     }
