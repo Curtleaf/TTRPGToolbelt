@@ -6,7 +6,7 @@ using WebAPIToolBelt.Models;
 
 namespace WebAPIToolbelt.Controllers
 {
-    [ApiController]
+    //[ApiController]
     public class Routes : ControllerBase
     {
         #region Configuration
@@ -43,7 +43,16 @@ namespace WebAPIToolbelt.Controllers
             DatabaseCalls dbc = new(_config);
 
             return dbc.GetBackgrounds(name, skill, stat, system);
-        } 
+        }
+
+        [Route("/GetSkills")]
+        [HttpGet]
+        public List<Skill> GetSkills(string name, bool? combat, bool? psychic, string system)
+        {
+            DatabaseCalls dbc = new(_config);
+
+            return dbc.GetSkills(name, combat, psychic, system);
+        }
         #endregion
     }
 }

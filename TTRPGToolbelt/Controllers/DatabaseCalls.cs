@@ -63,17 +63,49 @@ namespace WebAPIToolBelt.Controllers
             }
             if (!string.IsNullOrWhiteSpace(system))
             {
-                var searchSystem = builder.Eq(Background => Background.System, system);
+                var searchSystem = builder.Eq(Background => Background.system, system);
                 filter &= searchSystem;
             }
 
             var backgrounds = backgroundsCollection.Find(filter).ToList();
 
-
             return backgrounds;
         }
-        
 
+        public List<Skill> GetSkills(string name, bool? combat, bool? psychic, string system)
+        {
+
+            IMongoCollection<Skill> skillsCollection = GetMongodbRepository().GetCollection<Skill>("Skills");
+
+            var builder = Builders<Skill>.Filter;
+
+            var filter = builder.Empty;
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                var searchName = builder.Eq(Skills => Skills.name, name);
+                filter &= searchName;
+            }
+            if (combat != null)
+            {
+                var searchCombat = builder.Eq(Skills => Skills.combat, combat);
+                filter &= searchCombat;
+            }
+            if (psychic != null)
+            {
+                var searchPsychic = builder.Eq(Skills => Skills.psychic, psychic);
+                filter &= searchPsychic;
+            }
+            if (!string.IsNullOrWhiteSpace(system))
+            {
+                var searchSystem = builder.Eq(Skills => Skills.system, system);
+                filter &= searchSystem;
+            }
+
+            var skills = skillsCollection.Find(filter).ToList();
+
+            return skills;
+        }
 
     }
 }
