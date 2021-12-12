@@ -11,7 +11,7 @@ namespace WebAPIToolBelt.Models
         public string name { get; set; }
         public string description { get; set; }
         public bool combat { get; set; }
-        public bool psychic { get; set; }
+        public bool psychicMagic { get; set; }
         public string system { get; set; }
     }
 }

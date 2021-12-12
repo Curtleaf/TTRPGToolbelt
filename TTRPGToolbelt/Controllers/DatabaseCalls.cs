@@ -13,6 +13,9 @@ namespace WebAPIToolBelt.Controllers
     public class DatabaseCalls : Controller
     {
         #region Configuration
+        /// <summary>
+        /// Added configuration to accsess development API keys  
+        /// </summary>
         private readonly IConfiguration _config;
 
         public DatabaseCalls(IConfiguration config)
@@ -22,6 +25,10 @@ namespace WebAPIToolBelt.Controllers
         #endregion
 
         #region Database
+        /// <summary>
+        /// Uses API Key to collect and retund databease info
+        /// </summary>
+        /// <returns>TTRPG_Data_Repository Mongo Database</returns>
         public IMongoDatabase GetMongodbRepository()
         {
             var mongodbApiKey = _config["TTRPGToolBeltDB:ConnectionString"];
@@ -29,9 +36,17 @@ namespace WebAPIToolBelt.Controllers
             MongoClient dbClient = new(mongodbApiKey);
 
             return dbClient.GetDatabase("TTRPG_Data_Repository");
-        } 
+        }
         #endregion
 
+        /// <summary>
+        /// Returns a list of backgrounds per the query parameters 
+        /// </summary>
+        /// <param name="name">Name of background</param>
+        /// <param name="skill">Skills associated with backgrounds</param>
+        /// <param name="stat">stats associated with backgrounds</param>
+        /// <param name="system">Game system</param>
+        /// <returns>List of background objects</returns>
         public List<Background> GetBackgrounds(string name, string[] skill, string[] stat, string system)
         {
 
@@ -72,7 +87,15 @@ namespace WebAPIToolBelt.Controllers
             return backgrounds;
         }
 
-        public List<Skill> GetSkills(string name, bool? combat, bool? psychic, string system)
+        /// <summary>
+        /// Returns a list of skills per the query parameters 
+        /// </summary>
+        /// <param name="name">Name of Skill</param>
+        /// <param name="combat">Is combat skill</param>
+        /// <param name="psychicMagic">Is psychic or magic skill</param>
+        /// <param name="system">Game system</param>
+        /// <returns>List of skill objects</returns>
+        public List<Skill> GetSkills(string name, bool? combat, bool? psychicMagic, string system)
         {
 
             IMongoCollection<Skill> skillsCollection = GetMongodbRepository().GetCollection<Skill>("Skills");
@@ -91,9 +114,9 @@ namespace WebAPIToolBelt.Controllers
                 var searchCombat = builder.Eq(Skills => Skills.combat, combat);
                 filter &= searchCombat;
             }
-            if (psychic != null)
+            if (psychicMagic != null)
             {
-                var searchPsychic = builder.Eq(Skills => Skills.psychic, psychic);
+                var searchPsychic = builder.Eq(Skills => Skills.psychicMagic, psychicMagic);
                 filter &= searchPsychic;
             }
             if (!string.IsNullOrWhiteSpace(system))

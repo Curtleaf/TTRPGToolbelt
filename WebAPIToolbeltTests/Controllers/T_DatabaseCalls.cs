@@ -57,13 +57,13 @@ namespace WebAPIToolBeltTests.Controllers
         [TestCase("Administer", null, null, "WWN")]
         [TestCase("Stab", true, null, "SWN")]
         [TestCase("Metapsionics", false, true, "SWN")]
-        public void GetSkillsTest(string name, bool? combat, bool? psychic, string system)
+        public void GetSkillsTest(string name, bool? combat, bool? psychicMagic, string system)
         {
             var configuration = Configuration;
 
             DatabaseCalls dbc = new DatabaseCalls(configuration);
 
-            var getBackgrounds = dbc.GetSkills(name, combat, psychic, system);
+            var getBackgrounds = dbc.GetSkills(name, combat, psychicMagic, system);
 
             Assert.That(getBackgrounds.Count > 0);
         }
